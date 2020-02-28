@@ -1,3 +1,4 @@
+# General setup to build and run tests on the project whenever committing
 sudo: required
 services:
   - docker
@@ -6,6 +7,7 @@ before_install:
 script:
   - docker run -e CI=true jahhasangjekaj/docker-react npm run test -- --coverage
 
+# Deploy to production only when thera are changes to master branch
 deploy:
   edge: true
   provider: elasticbeanstalk
